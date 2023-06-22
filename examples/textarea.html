@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Textarea example for html-query-plan</title>
+    <link rel="stylesheet" type="text/css" href="../css/qp.css" />
+    <script src="../dist/qp.js"></script>
+</head>
+<body>
+    <fieldset><legend>Paste SHOWPLAN_XML below</legend>
+        <textarea cols=160 style="width:100%" rows=5 id="input"></textarea>
+    </fieldset>
+	<fieldset><legend>Visual Output</legend>
+		<div id="output"></div>
+	</fieldset>
+    <script>
+        document.getElementById('input').addEventListener('change', function (e) {
+            console.debug('change',this, arguments);
+			QP.showPlan(document.getElementById("output"), e.target.value);
+        });
+    </script>
+</body>
+</html>
